@@ -1,0 +1,212 @@
+Practice Bash and SQL by Building a Bike Rental Shop
+
+Content
+1. Start the Terminal
+2. Log in to Psql
+3. List Databases
+4. Create Database bikes
+5. List Databases
+6. Connect to bikes
+7. Create table bikes
+8. Display the tables
+9. Add column bike_id
+10. Display bikes Details
+11. Add type column
+12. Display bikes details
+13. Add Column size
+14. Add Column available
+15. Display bikes details
+16. Create Table customers
+17. Add Column customer_id
+18. Display customers Details
+19. Add Column phone
+20. Add Column name
+21. Display customers Details
+22. Create Table rentals
+23. Add Column rental_id
+24. Display rentals Details
+25. Add Column customer_id
+26. Set customer_id Foreign Key
+27. Display rentals Details
+28. Add Column bike_id
+29. Add bike_id Foreign Key
+30. Display rentals Details
+31. Add date_rented Column
+32. Display rentals Details
+33. Add Column date_returned
+34. Display rentals Details
+35. Display Tables
+36. Insert 27 inch Mountain Bike
+37. Select all from Bikes
+38. Insert 28 inch Mountain Bike
+39. Insert 29 inch Mountain Bike
+40. Insert 27 inch Road Bike
+41. Select all from Bikes
+42. Insert 28 and 29 inch Road Bikes
+43. Insert 19, 20, 21 inch BMX Bikes
+44. Select all from Bikes
+45. touch bike-shop.sh
+46. Add shebang!
+47. Add echo Bike Rental Shop
+48. chmod +x bike-shop.sh
+49. ./bike-shop.sh
+50. Add MAIN_MENU
+51. Add echo How may I help you?
+52. Add MAIN_MENU function call
+53. ./bike-shop.sh
+54. Add MAIN_MENU Options
+55. Run the file
+56. Read MAIN_MENU_SELECTION
+57. Add RENT_MENU
+58. Add echo Rent Menu
+59. Add RETURN_MENU function
+60. Add echo Return Menu
+61. Add EXIT function
+62. Add EXIT Message
+63. Add case statement to MAIN_MENU
+64. ./bike-shop.sh
+65. Add arg to MAIN_MENU call in case
+66. Add if $1 to MAIN_MENU
+67. ./bike-shop.sh
+68. Delete echo Rent Menu
+69. Add comments to RENT_MENU
+70. Add PSQL Variable
+71. Add AVAILABLE_BIKES
+72. echo AVAILABLE_BIKES
+73. ./bike-shop.sh
+74. psql UPDATE bikes SET available = false
+75. ./bike-shop.sh
+76. Add if -z AVAILABLE_BIKES
+77. Add MAIN_MENU Sorry, we don't have any bikes available right now
+78. ./bike-shop.sh
+79. Add else with comments
+80. Add echo Here are the bikes we have available
+81. Move echo AVAILABLE_BIKES
+82. psql UPDATE bikes SET all != BMX to TRUE
+83. ./bike-shop.sh
+84. pipe AVAILABLE_BIKES into while loop
+85. Run the script
+86. Adjust Available Bikes Display
+87. Run the script
+88. Add echo Which one would you like to rent?
+89. read BIKE_ID_TO_RENT
+90. [[ a =~ [0-9] ]]; echo $?
+91. echo [[ a1 =~ [0-9] ]]; echo $?
+92. echo [[ a1 =~ ^[0-9]$ ]]; echo $?
+93. echo [[ 1 =~ ^[0-9]$ ]]; echo $?
+94. echo [[ 11 =~ ^[0-9]$ ]]; echo $?
+95. echo [[ 11 =~ ^[0-9]+$ ]]; echo $?
+96. echo [[ ! 11 =~ ^[0-9]+$ ]]; echo $?
+97. Add if [[ ! $BIKE_ID_TO_RENT =~ ^[0-9]+$ ]]
+98. Add MAIN_MENU That is not a valid bike number
+99. ./bike-shop.sh
+100. Add else with comments
+101. Add BIKE_AVAILABILITY
+102. Add echo BIKE_AVAILABILITY
+103. ./bike-shop.sh
+104. Add if -z BIKE_AVAILABILITY
+105. Add MAIN_MENU That bike is not available
+106. Remove echo BIKE_AVAILABILITY
+107. ./bike-shop.sh
+108. psql UPDATE bikes SET add to true
+109. Add else with comments
+110. Add echo What's your phone number?
+111. read PHONE_NUMBER
+112. Add CUSTOMER_NAME
+113. Add if -z CUSTOMER_NAME
+114. Add echo What's your name?
+115. read CUSTOMER_NAME
+116. Add INSERT_CUSTOMER_RESULT
+117. Run the script
+118. psql SELECT * FROM customers
+119. psql SELECT * FROM rentals
+120. psql SELECT * FROM bikes
+121. Add comments
+122. Add CUSTOMER_ID
+123. Add INSERT_RENTAL_RESULT
+124. Add SET_TO_FALSE_RESULT
+125. Run the script
+126. psql SELECT * FROM rentals
+127. psql SELECT * FROM bikes ORDER BY bike_id
+128. Add BIKE_INFO
+129. Add echo BIKE_INFO
+130. ./bike-shop.sh
+131. echo '28 | Mountain' | sed 's/ /=/g'
+132. echo '28 | Mountain' | sed 's/ //g'
+133. echo '28 | Mountain' | sed 's/ //'
+134. echo '28 | Mountain' | sed 's/ |//'
+135. echo '28 | Mountain' | sed 's/ |/"/'
+136. Add echo BIKE_INFO | sed 's/ |/"/'
+137. ./bike-shop.sh
+138. Add BIKE_INFO_FORMATTED
+139. Add MAIN_MENU I have put you down for bike
+140. ./bike-shop.sh
+141. echo ' M e '
+142. echo "$(echo ' M e ')."
+143. echo "$(echo ' M e ' | sed 's/ //')."
+144. echo "$(echo ' M e ' | sed 's/ //g')."
+145. echo "$(echo ' M e ' | sed 's/^ //g')."
+146. echo "$(echo ' M e ' | sed 's/^ //g')."
+147. echo "$(echo ' M e ' | sed 's/^ *//g')."
+148. echo "$(echo ' M e ' | sed 's/ $//g')."
+149. echo "$(echo ' M e ' | sed 's/ $//g')."
+150. echo "$(echo ' M e ' | sed 's/ *$//g')."
+151. echo "$(echo ' M e ' | sed 's/^ *| *$//g')."
+152. man sed
+153. echo "$(echo ' M e ' | sed -r 's/^ *| *$//g')."
+154. Change to trim CUSTOMER_NAME
+155. Run the script
+156. Run the script
+157. Run the script
+158. SELECT * FROM bikes ORDER BY bike_id
+159. SELECT * FROM bikes ORDER BY bike_id
+160. SELECT * FROM bikes ORDER BY bike_id
+161. Delete echo Return Menu
+162. Add comments to RETURN_MENU
+163. Start the Return Bike Functionality
+164. Read PHONE_NUMBER
+165. Add CUSTOMER_ID
+166. Add if -z CUSTOMER_ID
+167. Add MAIN_MENU I could not find a record for that phone number
+168. ./bike-shop.sh
+169. Add else with comments
+170. psql SELECT * FROM bikes
+171. psql SELECT * FROM bikes LEFT JOIN rentals
+172. psql SELECT bikes INNER JOIN rentals
+173. psql SELECT bikes INNER JOIN rentals INNER JOIN customers
+174. psql Add conditions to the query
+175. psql SELECT only columns
+176. psql SELECT ORDER BY
+177. Add CUSTOMER_RENTALS
+178. Add echo CUSTOMER_RENTALS
+179. ./bike-shop.sh
+180. Add if -z CUSTOMER_RENTALS
+181. Add MAIN_MENU You do not have any bikes rented
+182. Add else with comments
+183. Add echo Here are your rentals
+184. Add echo CUSTOMER_RENTALS
+185. ./bike-shop.sh
+186. Add pipe and while loop
+187. ./bike-shop.sh
+188. Add echo Which bike would you like to return?
+189. read BIKE_ID_TO_RETURN
+190. Add if BIKE_ID_TO_RETURN not a number
+191. Add MAIN_MENU That is not a valid bike number
+192. Add else with comments
+193. psql SELECT rentals INNER JOIN customers
+194. psql Add conditions to the query
+195. psql Only get columns needed
+196. Add RENTAL_ID
+197. Add if -z RENTAL_ID
+198. Add MAIN_MENU You do not have that bike rented
+199. Add else echo Rental ID RENTAL_ID found
+200. Run the script
+201. Delete echo Rental ID RENTAL_ID found
+202. Add else with comments
+203. Add RETURN_BIKE_RESULT
+204. Add SET_TO_TRUE_RESULT
+205. Add MAIN_MENU Thank you for returning your bike
+206. ./bike-shop.sh
+207. psql SELECT * FROM rentals
+208. psql SELECT * FROM bikes ORDER BY bike_id
+209. ./bike-shop.sh
