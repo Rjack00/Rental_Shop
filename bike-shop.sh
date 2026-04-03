@@ -1,15 +1,35 @@
 #!/bin/bash
 
+PSQL="docker exec bike-db psql -U postgres -d bike_rental -t -P pager=off -c"
+
 echo -e "\n~~ Bike Rental Shop ~~\n";
 
 MAIN_MENU () {
-  echo "How may I help you?"
+  if [[ $1 ]]
+  then
+    echo -e "\n$1"
+  fi
+
+  echo -e "\nHow may I help you?"
   echo -e "\n1. Rent a bike\n2. Return a bike\n3. Exit"
   read MAIN_MENU_SELECTION
+  
+  case $MAIN_MENU_SELECTION in
+    1) RENT_MENU ;;
+    2) RETURN_MENU ;;
+    3) EXIT ;;
+    *) MAIN_MENU "Please enter a valid option." ;;
+  esac
 }
 
 RENT_MENU () {
-  echo -e "Rent Menu"
+  #get available bikes
+  AVAILABLE_BIKES=$($PSQL "SELECT bike_id, type, size FROM bikes WHERE available = true ORDER BY bike_id;")
+  echo -e "$AVAILABLE_BIKES"
+  #if no bikes available
+
+  #send to main menu
+
 }
 
 RETURN_MENU () {
@@ -19,5 +39,6 @@ RETURN_MENU () {
 EXIT () {
   echo -e "\nThank you for shopping in.\n"
 }
+
 
 MAIN_MENU
