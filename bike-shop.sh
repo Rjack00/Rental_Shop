@@ -25,11 +25,27 @@ MAIN_MENU () {
 RENT_MENU () {
   #get available bikes
   AVAILABLE_BIKES=$($PSQL "SELECT bike_id, type, size FROM bikes WHERE available = true ORDER BY bike_id;")
-  echo -e "$AVAILABLE_BIKES"
+  
   #if no bikes available
+  if [[ -z $AVAILABLE_BIKES ]]
+  then 
+    #send to main menu
+    MAIN_MENU "Sorry, we don't have any bikes available right now."
+  else
+    #display available bikes
+    echo -e "\nHere are the bikes we have available:\n"
+    echo -e "$AVAILABLE_BIKES" | while read BIKE_ID BAR TYPE BAR SIZE
+    do
+      echo "$BIKE_ID) $SIZE\" $TYPE Bike"
+    done
+    #ask for bike to rent
 
-  #send to main menu
+    #if input is not a number
 
+    #send to main menu
+
+  fi
+  
 }
 
 RETURN_MENU () {
