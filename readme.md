@@ -62,6 +62,31 @@ docker exec -it bike-db psql -U postgres -d bike_rental
 
 ---
 
+## Container Management
+
+### Start existing container
+`docker start <containerName>`
+
+### Stop container
+`docker stop <containerName>`
+
+### Remove container (deletes all data inside it)
+`docker rm <containerName>`
+
+### View running containers
+`docker ps`
+
+### View all containers (including stopped)
+`docker ps -a`
+
+---
+
+## Open PostgreSQL (interactive)
+
+`docker exec -it <containerName> psql -U postgres -d <dbname>`
+
+---
+
 ## Example Queries
 
 ```sql
