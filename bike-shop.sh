@@ -155,7 +155,7 @@ RETURN_MENU () {
 }
 
 EXIT () {
-  echo -e "\nThank you for shopping in.\n"
+  echo -e "\nThank you for shopping with us.\n"
 }
 
 
