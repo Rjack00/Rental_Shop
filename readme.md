@@ -111,6 +111,14 @@ docker rm bike-db
 
 ---
 
+## Backup.sql (optional)
+While docker container is running:
+```
+docker exec -t bike-db pg_dump -U postgres bike_rental > backup.sql
+```
+
+---
+
 ## Notes
 
 - The database must be created before running `schema.sql`
